@@ -3,12 +3,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.louis</groupId>
-  <artifactId>mango.core</artifactId>
+  <artifactId>mango-core</artifactId>
   <version>0.1.0</version>
   <packaging>jar</packaging>
   <description>公共 核心 业务 代码</description>
 
-  <name>mango.core</name>
+  <name>mango-core</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -19,7 +19,7 @@
   <dependencies>
   	<dependency>
   		<groupId>com.louis</groupId>
-		<artifactId>mango.common</artifactId>
+		<artifactId>mango-common</artifactId>
 	  	<version>0.1.0</version>
   	</dependency>
     <dependency>

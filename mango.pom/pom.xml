@@ -3,12 +3,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.louis</groupId>
-  <artifactId>mango.pom</artifactId>
+  <artifactId>mango-pom</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <description>打包用</description>
 
-  <name>mango.pom</name>
+  <name>mango-pom</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -27,7 +27,7 @@
   
   <modules>
   	<module>../mango-admin</module>
-  	<module>../mango-core</module>
-  	<module>../mango-common</module>
+  	<module>../mango.core</module>
+  	<module>../mango.common</module>
   </modules>
 </project>

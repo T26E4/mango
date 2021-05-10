@@ -20,7 +20,7 @@
 	<dependencies>
 		<dependency>
 		  	<groupId>com.louis</groupId>
-		  	<artifactId>mango.core</artifactId>
+		  	<artifactId>mango-core</artifactId>
 		  	<version>0.1.0</version>
 		</dependency>
 		<dependency>
