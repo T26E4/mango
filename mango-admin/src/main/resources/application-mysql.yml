@@ -1,0 +1,32 @@
+#普通mysql链接配置
+#spring:
+#   datasource:
+#      driverClassName: com.mysql.cj.jdbc.Driver
+#      url: jdbc:mysql://localhost:3306/vue?useUnicode=true&zeroDateTimeBehavior=convertToNull&autoReconnect= true&characterEncoding=utf-8
+#      username: vue
+#      password: vue
+
+#druid配置
+spring:
+   datasource:
+      name: druidDataSource
+      type: com.alibaba.druid.pool.DruidDataSource
+      druid:
+         driver-class-name: com.mysql.jdbc.Driver
+         url: jdbc:mysql://localhost:3306/vue?useUnicode=true&zeroDataTimeBehavior=convertToNull&autoReconnect=true&characterEncoding=utf-8
+         username: vue
+         password: vue
+         filters: stat,wall,log4j,config
+         max-active: 100
+         initial-size: 1
+         max-wait: 60000
+         min-idle: 1
+         time-between-eviction-runs-millis: 60000
+         min-evictable-idle-time-mills: 300000
+         validation-query: select 'X'
+         test-while-idle: true
+         test-on-borrow: false
+         test-on-return: false
+         pool-prepared-statements: true
+         max-open-prepared-statements: 50
+         max-pool-prepared-statement-per-connection-size: 20
