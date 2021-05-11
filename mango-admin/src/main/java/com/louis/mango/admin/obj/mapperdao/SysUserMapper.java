@@ -95,8 +95,15 @@ public interface SysUserMapper {
     int updateByPrimaryKey(SysUser record);
     
     /**
-     * ²éÑ¯ËùÓÐÓÃ»§
+     * ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½
      * @return
      */
     List<SysUser> findAll();
+    
+    /**
+     * åˆ†é¡µæŸ¥è¯¢
+     * @return
+     */
+    		
+   List<SysUser> findPage();
 }
