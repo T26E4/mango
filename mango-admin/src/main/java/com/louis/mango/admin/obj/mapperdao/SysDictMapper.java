@@ -1,9 +1,11 @@
 package com.louis.mango.admin.obj.mapperdao;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.louis.mango.admin.obj.dao.SysDict;
 import com.louis.mango.admin.obj.dao.SysDictExample;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
 public interface SysDictMapper {
     /**
@@ -93,4 +95,24 @@ public interface SysDictMapper {
      * @mbggenerated Mon May 10 11:10:44 CST 2021
      */
     int updateByPrimaryKey(SysDict record);
+    
+    /**
+     * 分页查询
+     * @return
+     */
+    List<SysDict> findPage();
+    
+    /**
+     * 根据标签名称查询
+     * @param label
+     * @return
+     */
+    List<SysDict> findByLabel(@Param(value = "label")String label);
+    
+    /**
+     * 根据标签名称分页查询
+     * @param label
+     * @return
+     */
+    List<SysDict> findPageByLabel(@Param("label")String label);
 }
