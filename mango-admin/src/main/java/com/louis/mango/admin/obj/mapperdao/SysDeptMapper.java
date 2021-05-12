@@ -93,4 +93,8 @@ public interface SysDeptMapper {
      * @mbggenerated Mon May 10 11:10:44 CST 2021
      */
     int updateByPrimaryKey(SysDept record);
+    
+    List<SysDept> findPage();
+    
+    List<SysDept> findAll();
 }

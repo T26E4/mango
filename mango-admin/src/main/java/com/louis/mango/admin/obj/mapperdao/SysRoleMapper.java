@@ -93,4 +93,12 @@ public interface SysRoleMapper {
      * @mbggenerated Mon May 10 11:10:44 CST 2021
      */
     int updateByPrimaryKey(SysRole record);
+    
+    List<SysRole> findPage();
+
+	List<SysRole> findAll();
+	
+	List<SysRole> findPageByName(@Param(value="name") String name);
+	
+	List<SysRole> findByName(@Param(value="name") String name);
 }

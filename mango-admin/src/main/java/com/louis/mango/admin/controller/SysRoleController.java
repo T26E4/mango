@@ -10,21 +10,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.louis.mango.admin.constant.SysConstants;
 import com.louis.mango.admin.obj.dao.SysRole;
+import com.louis.mango.admin.obj.dao.SysRoleMenu;
+import com.louis.mango.admin.obj.mapperdao.SysRoleMapper;
 import com.louis.mango.admin.service.SysRoleService;
 import com.louis.mango.core.http.HttpResult;
 import com.louis.mango.core.page.PageRequest;
 
 @RestController
-@RequestMapping("user")
+@RequestMapping("role")
 public class SysRoleController {
+
 	@Autowired
 	private SysRoleService sysRoleService;
+	@Autowired
+	private SysRoleMapper sysRoleMapper;
 	
 	
 	@PostMapping("/save")
-	public HttpResult save(@RequestBody SysRole sysRole) {
-		return HttpResult.ok(sysRoleService.save(sysRole));
+	public HttpResult save(@RequestBody SysRole record) {
+		SysRole role = sysRoleService.findById(record.getId());
+		if(role != null) {
+			if(SysConstants.ADMIN.equalsIgnoreCase(role.getName())) {
+				return HttpResult.error("超级管理员不允许修改!");
+			}
+		}
+		// 新增角色
+		if((record.getId() == null || record.getId() ==0) && !sysRoleService.findByName(record.getName()).isEmpty()) {
+			return HttpResult.error("角色名已存在!");
+		}
+		return HttpResult.ok(sysRoleService.save(record));
 	}
 	
 	@PostMapping(value = "/delete")
@@ -37,18 +53,25 @@ public class SysRoleController {
 		return HttpResult.ok(sysRoleService.findPage(pageRequest));
 	}
 	
-	@GetMapping("/findByName")
-	public HttpResult findByName(@RequestParam String labelName) {
-		return null;
+	@GetMapping(value="/findAll")
+	public HttpResult findAll() {
+		return HttpResult.ok(sysRoleService.findAll());
 	}
 	
-	@GetMapping("/findPermissions")
-	public HttpResult findPermissions(@RequestParam String name) {
-		return null;
+	@GetMapping(value="/findRoleMenus")
+	public HttpResult findRoleMenus(@RequestParam Long roleId) {
+		return HttpResult.ok(sysRoleService.findRoleMenus(roleId));
 	}
 	
-	@GetMapping("/findUserRoles")
-	public HttpResult findUserRoles(@RequestParam Long userId){
-		return null;
+	@PostMapping(value="/saveRoleMenus")
+	public HttpResult saveRoleMenus(@RequestBody List<SysRoleMenu> records) {
+		for(SysRoleMenu record:records) {
+			SysRole sysRole = sysRoleMapper.selectByPrimaryKey(record.getRoleId());
+			if(SysConstants.ADMIN.equalsIgnoreCase(sysRole.getName())) {
+				// 如果是超级管理员，不允许修改
+				return HttpResult.error("超级管理员拥有所有菜单权限，不允许修改！");
+			}
+		}
+		return HttpResult.ok(sysRoleService.saveRoleMenus(records));
 	}
 }

@@ -32,6 +32,6 @@ public class SysDeptController {
 	
 	@GetMapping("/findTree")
 	public HttpResult findTree() {
-		return null;
+		return HttpResult.ok(sysDeptService.findTree());
 	}
 }
