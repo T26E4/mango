@@ -15,6 +15,9 @@ public class HttpResult {
 	public static HttpResult error() {
 		return error(HttpStatus.SC_INTERNAL_SERVER_ERROR,"未知异常，请联系管理员");
 	}
+	public static HttpResult error(String msg) {
+		return error(HttpStatus.SC_INTERNAL_SERVER_ERROR,msg);
+	}
 	
 	public static HttpResult error(int code,String msg) {
 		HttpResult r = new HttpResult();

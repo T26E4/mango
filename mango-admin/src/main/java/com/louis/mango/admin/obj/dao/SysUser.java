@@ -1,6 +1,8 @@
 package com.louis.mango.admin.obj.dao;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class SysUser {
     /**
@@ -482,4 +484,33 @@ public class SysUser {
     public void setDelFlag(Byte delFlag) {
         this.delFlag = delFlag;
     }
+    
+    private String deptName;
+    private String roleNames;
+    private List<SysUserRole> userRoles = new ArrayList<>();
+
+	public String getDeptName() {
+		return deptName;
+	}
+
+	public void setDeptName(String deptName) {
+		this.deptName = deptName;
+	}
+
+	public String getRoleNames() {
+		return roleNames;
+	}
+
+	public void setRoleNames(String roleNames) {
+		this.roleNames = roleNames;
+	}
+
+	public List<SysUserRole> getUserRoles() {
+		return userRoles;
+	}
+
+	public void setUserRoles(List<SysUserRole> userRoles) {
+		this.userRoles = userRoles;
+	}
+    
 }
