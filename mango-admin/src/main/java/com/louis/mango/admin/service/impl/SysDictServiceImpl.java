@@ -49,7 +49,7 @@ public class SysDictServiceImpl implements SysDictService{
 
 	@Override
 	public PageResult findPage(PageRequest pagetRequest) {
-		Object labelObject = pagetRequest.getParams().get("label");
+		Object labelObject = pagetRequest.getParamValue("label");
 		if(labelObject != null) {
 			return MybatisPageHelper.findPage(pagetRequest,sysdictMapper,"findPageByLabel", labelObject);
 		}

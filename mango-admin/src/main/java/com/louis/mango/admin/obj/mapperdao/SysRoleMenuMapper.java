@@ -93,4 +93,10 @@ public interface SysRoleMenuMapper {
      * @mbggenerated Mon May 10 11:10:44 CST 2021
      */
     int updateByPrimaryKey(SysRoleMenu record);
+
+	List<SysRoleMenu> findRoleMenus(@Param(value="roleId") Long roleId);
+	
+	List<SysRoleMenu> findAll();
+
+	int deleteByRoleId(@Param(value="roleId") Long roleId);
 }

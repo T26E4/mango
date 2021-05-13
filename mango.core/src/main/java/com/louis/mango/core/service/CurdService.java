@@ -48,5 +48,5 @@ public interface CurdService<T> {
 	 * @param pagetRequest
 	 * @return
 	 */
-	PageResult findPage(PageRequest pagetRequest);
+	PageResult findPage(PageRequest pageRequest);
 }

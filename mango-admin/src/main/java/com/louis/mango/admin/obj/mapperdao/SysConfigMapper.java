@@ -93,4 +93,10 @@ public interface SysConfigMapper {
      * @mbggenerated Mon May 10 11:10:44 CST 2021
      */
     int updateByPrimaryKey(SysConfig record);
+    
+    List<SysConfig> findPage();
+    
+    List<SysConfig> findPageByLabel(@Param(value="label") String label);
+
+    List<SysConfig> findByLable(@Param(value="label") String label);
 }

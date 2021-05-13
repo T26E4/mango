@@ -1,7 +1,7 @@
 package com.louis.mango.core.page;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PageRequest {
 
@@ -15,19 +15,6 @@ public class PageRequest {
 	 */
 	private int pageSize = 20;
 	
-	/**
-	 * 查询参数
-	 */
-	private Map<String,Object> params = new HashMap<>();
-
-	/**
-	 * 添加参数
-	 * @param name
-	 * @param value
-	 */
-	public void putParam(String name,Object value) {
-		params.put(name, value);
-	}
 	
 	public int getPageNum() {
 		return pageNum;
@@ -44,14 +31,40 @@ public class PageRequest {
 	public void setPageSize(int pageSize) {
 		this.pageSize = pageSize;
 	}
-
-	public Map<String, Object> getParams() {
-		return params;
-	}
-
-	public void setParams(Map<String, Object> params) {
-		this.params = params;
+	
+	/**
+	 * 查询参数
+	 */
+	private List<Param> params = new ArrayList<>();
+	/**
+	 * 查询参数值
+	 * @param name 参数名称
+	 * @return
+	 */
+	public String getParamValue(String name) {
+		Param param = getParam(name);
+		if(param != null) {
+			return param.getValue();
+		}
+		return null;
 	}
 	
+	/**
+	 * 查询参数对象
+	 * @param name 参数名称
+	 * @return
+	 */
+	public Param getParam(String name) {
+		for(Param param:this.params) {
+			if(name != null && name.equals(param.getName())) {
+				return param;
+			}
+		}
+		return null;
+	}
+
+	public void setParams(List<Param> params) {
+		this.params = params;
+	}
 	
 }

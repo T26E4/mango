@@ -93,4 +93,14 @@ public interface SysLoginLogMapper {
      * @mbggenerated Mon May 10 11:10:44 CST 2021
      */
     int updateByPrimaryKey(SysLoginLog record);
+    
+    List<SysLoginLog> findPage();
+    
+    List<SysLoginLog> findPageByUserName(@Param(value="userName") String userName);
+    
+    List<SysLoginLog> findPageByStatus(@Param(value="status") String status);
+    
+    List<SysLoginLog> findPageByUserNameAndStatus(@Param(value="userName") String userName, @Param(value="status") String status);
+    
+    List<SysLoginLog> findByUserNameAndStatus(@Param(value="userName") String userName, @Param(value="status") String status);
 }

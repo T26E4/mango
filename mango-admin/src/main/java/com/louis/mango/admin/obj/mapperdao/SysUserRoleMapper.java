@@ -93,4 +93,8 @@ public interface SysUserRoleMapper {
      * @mbggenerated Mon May 10 11:10:44 CST 2021
      */
     int updateByPrimaryKey(SysUserRole record);
+
+	List<SysUserRole> findUserRoles(@Param(value="userId") Long userId);
+
+	int deleteByUserId(@Param(value="userId") Long userId);
 }
