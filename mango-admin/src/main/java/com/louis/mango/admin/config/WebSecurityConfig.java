@@ -15,6 +15,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.HttpStatusReturningLogoutSuccessHandler;
 
+import com.louis.mango.admin.security.JwtAuthenicationFilter;
+import com.louis.mango.admin.security.JwtAuthenticationProvider;
+
 @Configuration
 @EnableWebSecurity   //开启sercurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)    //开启权限注解，如：   @PreAuthorize注解
@@ -27,7 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
 		// 使用自定义身份验证组件
-//		auth.authenticationProvider(new JwtAuthenticationProvider(userDetailsService));
+		auth.authenticationProvider(new JwtAuthenticationProvider(userDetailService));
 	}
 	
 	
@@ -59,7 +62,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 		//退出登录
 		http.logout().logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler());
 		//token验证过滤器
-//		http.addFilterBefore(new JwtAuthenticationFiler(authenticationManager()), UsernamePasswordAuthenticationFilter.class);
+		http.addFilterBefore(new JwtAuthenicationFilter(authenticationManager()), UsernamePasswordAuthenticationFilter.class);
 	}
 	
 	@Bean
