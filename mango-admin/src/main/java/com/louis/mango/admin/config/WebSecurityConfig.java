@@ -27,7 +27,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
 		// 使用自定义身份验证组件
-		auth.authenticationProvider(new JwtAuthenticationProvider(userDetailsService));
+//		auth.authenticationProvider(new JwtAuthenticationProvider(userDetailsService));
 	}
 	
 	
@@ -59,7 +59,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 		//退出登录
 		http.logout().logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler());
 		//token验证过滤器
-		http.addFilterBefore(new JwtAuthenticationFiler(authenticationManager()), UsernamePasswordAuthenticationFilter.class);
+//		http.addFilterBefore(new JwtAuthenticationFiler(authenticationManager()), UsernamePasswordAuthenticationFilter.class);
 	}
 	
 	@Bean

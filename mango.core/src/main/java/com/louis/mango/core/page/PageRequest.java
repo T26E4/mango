@@ -35,7 +35,7 @@ public class PageRequest {
 	/**
 	 * 查询参数
 	 */
-	private List<Param> params = new ArrayList<>();
+	private List<Param> params = new ArrayList<Param>();
 	/**
 	 * 查询参数值
 	 * @param name 参数名称

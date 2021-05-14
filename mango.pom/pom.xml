@@ -27,7 +27,7 @@
   
   <modules>
   	<module>../mango-admin</module>
-  	<module>../mango.core</module>
-  	<module>../mango.common</module>
+  	<module>../mango-core</module>
+  	<module>../mango-common</module>
   </modules>
 </project>
