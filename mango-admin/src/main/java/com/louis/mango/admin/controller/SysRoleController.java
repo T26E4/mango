@@ -57,8 +57,8 @@ public class SysRoleController {
 		return HttpResult.ok(sysRoleService.findPage(pageRequest));
 	}
 	
-	@GetMapping(value="/findAll")
 	@PreAuthorize("hasAuthority('sys:role:view')")
+	@GetMapping(value="/findAll")
 	public HttpResult findAll() {
 		return HttpResult.ok(sysRoleService.findAll());
 	}
