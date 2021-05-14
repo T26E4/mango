@@ -3,6 +3,7 @@ package com.louis.mango.admin.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,6 +30,7 @@ public class SysRoleController {
 	
 	
 	@PostMapping("/save")
+	@PreAuthorize("hasAuthority('sys:role:add') AND hasAuthority('sys:role:edit')")
 	public HttpResult save(@RequestBody SysRole record) {
 		SysRole role = sysRoleService.findById(record.getId());
 		if(role != null) {
@@ -44,26 +46,31 @@ public class SysRoleController {
 	}
 	
 	@PostMapping(value = "/delete")
+	@PreAuthorize("hasAuthority('sys:role:delete')")
 	public HttpResult delete(@RequestBody List<SysRole> sysRoles) {
 		return HttpResult.ok(sysRoleService.delete(sysRoles));
 	}
 	
 	@PostMapping("/findPage")
+	@PreAuthorize("hasAuthority('sys:role:view')")
 	public HttpResult findPage(@RequestBody PageRequest pageRequest) {
 		return HttpResult.ok(sysRoleService.findPage(pageRequest));
 	}
 	
 	@GetMapping(value="/findAll")
+	@PreAuthorize("hasAuthority('sys:role:view')")
 	public HttpResult findAll() {
 		return HttpResult.ok(sysRoleService.findAll());
 	}
 	
 	@GetMapping(value="/findRoleMenus")
+	@PreAuthorize("hasAuthority('sys:role:view')")
 	public HttpResult findRoleMenus(@RequestParam Long roleId) {
 		return HttpResult.ok(sysRoleService.findRoleMenus(roleId));
 	}
 	
 	@PostMapping(value="/saveRoleMenus")
+	@PreAuthorize("hasAuthority('sys:role:view')")
 	public HttpResult saveRoleMenus(@RequestBody List<SysRoleMenu> records) {
 		for(SysRoleMenu record:records) {
 			SysRole sysRole = sysRoleMapper.selectByPrimaryKey(record.getRoleId());

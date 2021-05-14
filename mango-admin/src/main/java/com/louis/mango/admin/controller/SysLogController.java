@@ -9,26 +9,32 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.louis.mango.admin.obj.dao.SysLoginLog;
-import com.louis.mango.admin.service.SysLoginLogService;
+import com.louis.mango.admin.obj.dao.SysLog;
+import com.louis.mango.admin.service.SysLogService;
 import com.louis.mango.core.http.HttpResult;
 import com.louis.mango.core.page.PageRequest;
 
+/**
+ * 操作日志控制器
+ * @author Louis
+ * @date Jan 13, 2019
+ */
 @RestController
-@RequestMapping("loginlog")
-public class SysLoginLogController {
-	@Autowired
-	private SysLoginLogService sysLoginLogService;
+@RequestMapping("log")
+public class SysLogController {
 
+	@Autowired
+	private SysLogService sysLogService;
+
+	@PreAuthorize("hasAuthority('sys:log:view')")
 	@PostMapping(value="/findPage")
-	@PreAuthorize("hasAuthority('sys:loginlog:view')")
 	public HttpResult findPage(@RequestBody PageRequest pageRequest) {
-		return HttpResult.ok(sysLoginLogService.findPage(pageRequest));
+		return HttpResult.ok(sysLogService.findPage(pageRequest));
 	}
 	
+	@PreAuthorize("hasAuthority('sys:log:delete')")
 	@PostMapping(value="/delete")
-	@PreAuthorize("hasAuthority('sys:loginlog:delete')")
-	public HttpResult delete(@RequestBody List<SysLoginLog> records) {
-		return HttpResult.ok(sysLoginLogService.delete(records));
+	public HttpResult delete(@RequestBody List<SysLog> records) {
+		return HttpResult.ok(sysLogService.delete(records));
 	}
 }
