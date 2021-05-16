@@ -1,5 +1,8 @@
 server:
    port: 8850
 spring:
+   profiles:
+      include:
+          consul
    application:
       name: mango-monitor
