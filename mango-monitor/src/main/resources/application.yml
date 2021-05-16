@@ -1,0 +1,5 @@
+server:
+   port: 8850
+spring:
+   application:
+      name: mango-monitor

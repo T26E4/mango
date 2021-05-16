@@ -4,4 +4,4 @@ server:
 spring:
   profiles:
       include:
-          mysql,pageHelper
+          mysql,pageHelper,monitor

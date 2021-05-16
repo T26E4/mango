@@ -1,7 +1,10 @@
 #tomcat
 server:
-   port: 8002
+   port: 8849
 spring:
+   profiles:
+      include:
+          monitor
    application:
       name: mango-backup
 #backup datasource

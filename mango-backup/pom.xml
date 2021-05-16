@@ -44,12 +44,12 @@
 			<artifactId>mango-common</artifactId>
 			<version>0.1.0</version>
 		</dependency>
-		<!--spring-boot-admin-client
+		<!--spring-boot-admin-client  添加后mango-monitor可以监控到还要开配置monitor.yml-->
 		<dependency>
 			<groupId>de.codecentric</groupId>
 			<artifactId>spring-boot-admin-starter-client</artifactId>
 			<version>2.0.4</version>
-		</dependency> -->
+		</dependency> 
 		<!--consul
 		<dependency>
 		    <groupId>org.springframework.cloud</groupId>

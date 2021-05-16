@@ -39,7 +39,7 @@ public class MysqlBackupRestoreUtils {
 		Process process = Runtime.getRuntime().exec(getCommand(stringBuilder.toString()));
 		
 		// 标准输入流（必须写在 waitFor 之前）
-		String inStr = consumeInputStream(process.getInputStream());
+//		String inStr = consumeInputStream(process.getInputStream());
 		// 标准错误流（必须写在 waitFor 之前）
 		String errStr = consumeInputStream(process.getErrorStream());
 		new ProcessClearStream(process.getInputStream(), "INFO").start();
