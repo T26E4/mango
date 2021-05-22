@@ -1,0 +1,5 @@
+#ribbon 负载均衡配置    mango-producer为注册的服务名
+mango-producer:
+   ribbon:
+      NFLoadBalancerRuleClassName:
+         com.netflix.loadbalancer.RandomRule

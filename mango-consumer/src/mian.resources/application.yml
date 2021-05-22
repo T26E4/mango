@@ -5,4 +5,4 @@ spring:
       name: mango-consumer
    profiles:
       include:
-          monitor,consul
+          monitor,consul,ribbonStrategy
