@@ -1,0 +1,8 @@
+server:
+   port: 8852
+spring:
+   application:
+      name: mango-consumer
+   profiles:
+      include:
+          monitor,consul,ribbonStrategy
