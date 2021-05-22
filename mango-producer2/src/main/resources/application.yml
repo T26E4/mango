@@ -1,0 +1,9 @@
+server:
+   port: 8853
+spring:
+   application:
+      name: mango-producer
+   profiles:
+      include:
+         consul,monitor   
+   

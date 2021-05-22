@@ -9,6 +9,6 @@ public class controller {
 
 	@RequestMapping("/hello")
 	public String hello() {
-		return "hello mango producer--我是实例1!";
+		return "hello mango producer!我是实例2";
 	}
 }
