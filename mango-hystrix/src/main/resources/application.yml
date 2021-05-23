@@ -1,0 +1,10 @@
+server:
+   port: 8854
+   
+
+spring:
+   application:
+      name: mango-hystrix
+   profiles:
+      include:
+         consul
