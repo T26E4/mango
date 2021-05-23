@@ -1,0 +1,4 @@
+#开启熔断服务
+feign:
+   hystrix:
+      enabled: true
