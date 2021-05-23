@@ -1,0 +1,5 @@
+turbine:
+  instanceUrlSuffix: hystrix.stream
+  appConfig: mango-consumer
+  clusterNameExpression: "'default'"
+  combine-host-port: true

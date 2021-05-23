@@ -1,0 +1,10 @@
+server:
+   port: 8856
+   
+
+spring:
+   application:
+      name: mango-turbine
+   profiles:
+      include:
+         consul,monitor,turbine
