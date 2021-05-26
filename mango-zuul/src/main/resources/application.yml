@@ -1,0 +1,8 @@
+server:
+   port: 8857
+   
+spring:
+   application:
+      name: mango-zuul
+   profiles:
+      include: consul,zuul,monitor

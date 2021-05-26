@@ -1,0 +1,12 @@
+zuul:
+   prefix: /mango
+   routes:
+   #下一层只是映射的名字 每个名字下带一个路径和服务配置
+      ribbon4444:
+         path: /ribbon/**
+         #转发到消费者上
+         serviceId: mango-consumer
+      feign:
+         path: /feign/**
+         #转发到对应消费者上
+         serviceId: mango-consumer
