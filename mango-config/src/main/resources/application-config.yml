@@ -4,8 +4,8 @@ spring:
          label: mango
          server:
             git:
+               default-label: mango
                uri: https://github.com/T26E4/mango.git
                search-paths: configRepository1,configRepository2
-               force-pull: true
                username: T26E4
                password: LIUtong19930207
