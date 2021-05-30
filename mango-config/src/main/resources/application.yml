@@ -1,0 +1,8 @@
+server:
+   port: 8858
+   
+spring:
+   application:
+      name: mango-config
+   profiles:
+      include: consul,monitor,config

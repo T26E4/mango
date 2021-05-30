@@ -1,0 +1,10 @@
+spring:
+   boot:
+      admin:
+         client:
+            url: "http://localhost:8850"
+management:
+   endpoints:
+      web:
+         exposure:
+            include: "*"

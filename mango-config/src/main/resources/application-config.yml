@@ -1,0 +1,10 @@
+spring:
+   cloud:
+      config:
+         label: mango
+      server:
+         git:
+            uri: https://github.com/T26E4/mango.git
+            search-path: configRepository1,configRepository2
+            #username: username
+            #password: password
