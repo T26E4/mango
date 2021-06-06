@@ -19,6 +19,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <swagger.version>2.9.2</swagger.version>
     <spring.boot.admin.version>2.0.4</spring.boot.admin.version>
+    
   </properties>
 
   <dependencies>
@@ -65,6 +66,21 @@
     <dependency>
     	<groupId>org.springframework.cloud</groupId>
     	<artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
+    </dependency>
+    <!-- 调用spring cloud config -->
+    <dependency>
+    	<groupId>org.springframework.cloud</groupId>
+    	<artifactId>spring-cloud-starter-config</artifactId>
+    </dependency>
+    <!-- spring-cloud-config动态刷新 -->
+    <dependency>
+    	<groupId>org.springframework.boot</groupId>
+    	<artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+    <!-- bus rabbitmq -->
+    <dependency>
+    	<groupId>org.springframework.cloud</groupId>
+    	<artifactId>spring-cloud-starter-bus-amqp</artifactId>
     </dependency>
   </dependencies>
  

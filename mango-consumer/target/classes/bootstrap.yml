@@ -1,0 +1,25 @@
+spring:
+   cloud:
+      consul:
+         host: localhost
+         port: 8500
+         #注册到consul的名字
+         discovery: 
+            serviceName: ${spring.application.name}
+      config:
+         discovery:
+            #开启服务发现
+            enabled: true
+            #配置中心服务名称
+            serviceId: mango-config
+         #对应配置中心文件的前缀部分
+         name: consumer
+         #对应配置中心文件的后缀部分
+         profile: dev
+         #git分支名称，如果是本地则该参数无用
+         label: mango
+   rabbitmq:
+      host: 192.168.50.128
+      port: 5672
+      username: guest
+      password: guest

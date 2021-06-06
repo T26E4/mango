@@ -1,0 +1,19 @@
+package com.louis.mango.consumer.controller;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RefreshScope
+public class SpringConfigController {
+	
+	@Value("${hello}")
+	private String  testString;
+	
+	@RequestMapping("config/hello")
+	public String configHello() {
+		return testString;
+	}
+}

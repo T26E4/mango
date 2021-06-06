@@ -1,0 +1,11 @@
+spring:
+   cloud:
+      config:
+         label: mango
+         server:
+            git:
+               default-label: mango
+               uri: https://gitee.com/T26E4/mango.git
+               search-paths: configRepository1,configRepository2
+               username: 15885007639
+               password: LT10331

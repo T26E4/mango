@@ -3,8 +3,14 @@ spring:
       admin:
          client:
             url: "http://localhost:8850"
+            instance: 
+               service-base-url: http://localhost:${server.port}/
 management:
    endpoints:
       web:
          exposure:
             include: "*"
+   #开放检查接口
+   endpoint:
+      health:
+         show-details: ALWAYS
